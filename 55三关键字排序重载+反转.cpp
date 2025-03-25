@@ -8,7 +8,7 @@ struct Book
 {
 	int a,b,c;
 	
-	bool operator < (const Book &u)const//重载运算符
+	bool operator < (const Book &u)const//重载运算符,<重塑的对象是book的u&&&
 	{
 		if(a == u.a&&b==u.b)return c<u.c;
 		if(a == u.a)return b<u.b;
@@ -21,7 +21,7 @@ int main()
 {
 	ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 	int n;cin>>n;
-	for(int i=1;i<=n;i++)//下标为何是1开始了？
+	for(int i=1;i<=n;i++)
 	{
 		cin>>p[i].a>>p[i].b>>p[i].c;
 	}

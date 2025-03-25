@@ -2,7 +2,7 @@
 using namespace std;
 using ll = long long;
 const int N = 2e5 + 9;
-
+//求解单独存在的数字如4 1 2 1 2会输出4，一直做异或
 int main()
 {
 	ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
