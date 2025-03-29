@@ -7,7 +7,7 @@ const int N = 1e5 + 9;
 void solve()
 {
 	int q;cin>>q;
-	priority_queue<ll, vector<ll>, greater<ll> > pq;//小根堆
+	priority_queue<ll> pq;
 	
 	ll sum = 0;
 	while(q --)
@@ -19,7 +19,7 @@ void solve()
 			pq.push(x);
 			sum += x;
 		}
-		else if(pq.size())
+		else if(!pq.empty())
 		{
 			sum -= pq.top();
 			pq.pop();

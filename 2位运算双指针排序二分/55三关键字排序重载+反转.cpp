@@ -8,7 +8,7 @@ struct Book
 {
 	int a,b,c;
 	
-	bool operator < (const Book &u)const//重载运算符,<重塑的对象是book的u&&&
+	bool operator < (const Book &u)const//重载运算符,<重塑的对象是book的u（用来指代后者的）注意类型和&
 	{
 		if(a == u.a&&b==u.b)return c<u.c;
 		if(a == u.a)return b<u.b;

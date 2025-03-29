@@ -12,7 +12,7 @@ void solve()
    {
    	if(n % i != 0) continue;//i不是因子
    	v.push_back(i);
-   	if(i != n/i) v.push_back(n/i); //防止i重复
+   	if(i != n/i) v.push_back(n/i); //防止因子重复因为i和n/i都是因子
    }
    sort(v.begin(), v.end());
    for(auto &i : v) cout << i << ' ';

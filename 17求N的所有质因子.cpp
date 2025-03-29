@@ -7,7 +7,7 @@ void solve() {
   ll n; cin >> n;
   vector<ll> ans;
   for(ll i = 2; i <= n / i; i++) {
-  	if(n % i) continue;
+  	if(n % i != 0) continue;
   	ans.push_back(i);
   	while(n % i == 0) n /= i;
   }

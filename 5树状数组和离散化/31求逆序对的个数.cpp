@@ -16,12 +16,12 @@ int bin(int x)
 
 int lowbit(int x){return x & -x;}
 
-void update(int k,int x)
+void update(int k,int x)//上
 {
 	for(int i = k;i <= X.size(); i += lowbit(i)) t[i] +=x;
 }
 
-int getsum(int k)
+int getsum(int k)//下
 {
 	int res = 0;
 	for(int i = k;i > 0;i-= lowbit(i)) res += t[i];
@@ -45,7 +45,7 @@ void solve()
 	for(int i = 1;i <= n;++i)
 	{
 		ans += 1ll * getsum(X.size()) - getsum(bin(a[i]));//排过序了，
-		//此时前者为全部元素的下标之和，后者为小于a[i]的元素的下标之和，相减不言而喻
+		//此时前者为全部元素的个数之和，后者为小于a[i]的元素之和，相减不言而喻
 		update(bin(a[i]),1);
 	}
 	cout << ans <<'\n';

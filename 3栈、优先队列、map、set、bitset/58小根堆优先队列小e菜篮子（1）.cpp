@@ -4,18 +4,10 @@ using ll = long long;
 
 const int N = 1e5 + 9;
 
-struct cmp
-{
-	bool operator ()(const ll &u,const ll &v)const
-	{
-		return u>v;//如果是<则是大根堆写法
-	}
-};
-
 void solve()
 {
 	int q;cin>>q;
-	priority_queue<ll, vector<ll>, cmp> pq;//小根堆
+	priority_queue<ll, vector<ll>, greater<ll> > pq;//小根堆，要多写vector和greater<ll>
 	
 	ll sum = 0;
 	while(q --)
@@ -27,7 +19,7 @@ void solve()
 			pq.push(x);
 			sum += x;
 		}
-		else if(pq.size())
+		else if(!pq.empty())
 		{
 			sum -= pq.top();
 			pq.pop();

@@ -12,10 +12,10 @@ void solve()//bitset solution!
 	for(int i = 1;i<= n;i++)cin >> a[i];
 	
 	bitset<M> bs;
-	bs[0] = 1;
+	bs[0] = 1;//如果是1的话，就表示可以取到这个数
 	for(int i = 1;i <= n; i ++)
 	{
-		bs |= (bs << a[i]);//进行或运算
+		bs |= (bs << a[i]);//进行或运算，移动a[i]表示取得新的组合和
 	}
 	cout<<bs.count()<<'\n';
 }
