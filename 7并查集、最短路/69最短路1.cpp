@@ -4,7 +4,7 @@ using ll = long long;
 const int N = 1e6 + 9;
 const ll inf = 2e18;
 struct Edge{
-   ll y, w;
+   ll x, w;
 };//存出点和权值
 
 vector<Edge> g[N];
