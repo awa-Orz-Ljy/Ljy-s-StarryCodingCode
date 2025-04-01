@@ -7,10 +7,11 @@ const int N = 1e5 + 10;
 void solve(){
    ll n; cin >> n;
    vector<ll> v;
-   for(int i = 1; i <= sqrt(n) ; i++){
-   	if(n % i != 0) continue;//i不是因子 to check sqrt(n)'s left
+   for(int i = 1; i <= sqrt(n) ; i++)
+   {
+   	if(n % i != 0) continue;//i不是因子
    	v.push_back(i);
-   	if(i != n/i) v.push_back(n/i); //防止因子重复,因为i和n/i都是因子
+   	if(i != n/i) v.push_back(n/i); //防止因子重复因为i和n/i都是因子
    }
    sort(v.begin(), v.end());
    for(auto &i : v) cout << i << ' ';

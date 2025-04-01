@@ -6,13 +6,15 @@ const int N = 1e5 + 5;
 void solve() {
   ll n; cin >> n;
   vector<ll> ans;
-  for(ll i = 2; i <= n / i; i++) {//从sqrt(n)的左边开始找
+  for(ll i = 2; i <= n / i; i++) {
   	if(n % i != 0) continue;
   	ans.push_back(i);
-  	while(n % i == 0) n /= i;//把n里面的i除掉，要用到额外循环
+  	while(n % i == 0) n /= i;
   }
   ans.push_back(n);
-  for(auto &num : ans) cout << num << ' ';
+  for(int num : ans) {
+  	cout << num << ' ';
+  }
 }
 
 int main() {

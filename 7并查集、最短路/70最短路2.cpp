@@ -46,11 +46,9 @@ void dijkstra(int st)
    }
 }
 
-void solve()
-{
+void solve(){
    cin >> n >> m;
-   for(int i = 1;i <= m; ++ i)
-   {
+   for(int i = 1;i <= m; ++ i){//边的个数
    	ll x, y, w;cin >> x >> y >> w;
    	g[x].push_back({y, w});
    }
