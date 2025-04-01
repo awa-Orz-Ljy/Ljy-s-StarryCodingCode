@@ -1,4 +1,3 @@
-// StarryCoding P16 【模板】求N的所有因子 by eriktse
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;

@@ -4,34 +4,33 @@ const int N = 305 + 9;
 using ll = long long;
 const ll inf = 2e18;
 
-ll n, m, q;
+ll d[N][N],n, m, q;//q次询问
 
-ll d[N][N];
-
+//0x3f是4.5e18的大小，inf取4e18
 void solve()
 {
-   cin >> n >> m >> q;
-   for(int i = 1;i <= n; ++ i)
-   	for(int j = 1;j <= n; ++ j)
-   		d[i][j] = inf;
-   for(int i = 1;i <= n; ++ i)d[i][i] = 0;
-   
-   for(int i = 1;i <= m; ++ i)
-   {
-   	ll x, y, w;cin >> x >> y >> w;
-   	d[x][y] = min(d[x][y], w);
-   }
-   //floyd
-   for(int k = 1;k <= n; ++ k)
-   	for(int i = 1;i <= n; ++ i)
-   		for(int j = 1;j <= n; ++ j)
-   			if(d[i][k] + d[k][j] < d[i][j])
-   				d[i][j] = d[i][k] + d[k][j];
-   while(q --)
-   {
-   	int x, y;cin >> x >> y;
-   	cout << (d[x][y] == inf ? -1 : d[x][y]) << '\n';
-   }
+	cin>>n>>m>>q;
+	memset(d,0x3f,sizeof d);//对字节操作
+	//存边和权值,对边
+	for(int i = 1;i <= m;i ++){
+		ll u,v,w;cin>>u>>v>>w;
+		d[u][v] = min(d[u][v],w);
+	}
+	//初始化，对点，自己到自己距离就是0
+	for(int i = 1;i <= n;i ++) d[i][i] = 0;
+	//取最优
+	for(int k = 1;k <= n;k ++){
+		for(int i = 1;i <= n;i ++){
+			for(int j = 1;j <= n;j ++){
+				d[i][j] = min(d[i][j],d[i][k] + d[k][j]);
+			}
+		}
+	}
+	
+	while(q --){
+		int u,v;cin>>u>>v;
+		cout<<(d[u][v] >= inf ? -1:d[u][v])<<'\n';
+	}
 }
 
 int main()

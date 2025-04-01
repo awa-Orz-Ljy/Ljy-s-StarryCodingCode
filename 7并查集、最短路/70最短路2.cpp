@@ -2,7 +2,7 @@
 using namespace std;
 const int N = 3e5 + 9;
 using ll = long long;
-const ll inf = 2e18;
+const ll inf = 4e18;
 
 ll n, m;
 
@@ -15,25 +15,25 @@ struct Edge{
    }
 };
 
-vector<Edge> g[N];//邻接表存出点和权值
+vector<Edge> g[N];//邻接表存出点和权值，结构体
 
 ll d[N];
 
 void dijkstra(int st){
-   //初始化d
+   //1初始化d
    for(int i = 1;i <= n; ++ i) d[i] = inf;
-   //优先队列可以优化找最近的点
+   //2优先队列，设置一个起点st
    bitset<N> vis;
    priority_queue<Edge> pq;
    d[st] = 0;
    pq.push({st, d[st]});
-   //更新d,队列非空就一直找
+   //3更新d,队列非空就一直找
    while(!pq.empty()){
    	int x = pq.top().x;
    	pq.pop();
    	if(vis[x])continue;
-   	vis[x] = true;
-   	
+   	vis[x] = true;//核心，拿来记录拓展点
+   	//4更新最优距离
    	for(const auto &t : g[x])
    	{
    		ll w = t.w, y = t.x;
