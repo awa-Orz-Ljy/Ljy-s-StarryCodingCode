@@ -32,27 +32,28 @@ void solve()
    pq.push({1, 0});
    d[1] = 0;
    ll ans = 0;
-   
+   //维护intree找点 
    while(!pq.empty()){
-   	auto [x, w] = pq.top();
-   	pq.pop();
+   		int x = pq.top().x;
+  	 	pq.pop();
    	
-   	if(intree[x]) continue;
-   	intree[x] = true;
-   	
-   	if(x ^ 1) ans += w;
-   	d[x] = 0;
-   	
-   	for(auto &[y ,w] : g[x])
-   	{
-   		if(!intree[y] && w < d[y])
-   		{
-   			d[y] = w;
-   			pq.push({y, w});
-   			
-   		}
-   	} 
+   		if(intree[x]) continue;
+   		intree[x] = true;
+   		//不是起点就更新答案
+   		if(x ^ 1) ans += d[x];
+	   	d[x] = 0;
+	   	//对gx未被拓展且符合小的要求就更新d
+	   	for(auto &[y ,w] : g[x]) 
+	   	{
+	   		if(!intree[y] && w < d[y])
+	   		{
+	   			d[y] = w;
+	   			pq.push({y, w});
+	   			
+	   		}
+	   	} 
    }
+   //不存在的点
    for(int i = 1;i <= n;++ i) if(!intree[i]) ans = -1;
    cout << ans << '\n';
 }

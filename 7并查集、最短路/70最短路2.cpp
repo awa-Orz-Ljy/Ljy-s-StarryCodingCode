@@ -8,7 +8,7 @@ ll n, m;
 
 struct Edge{
    ll x, w;
-   //重载运算符，左边的和u比较，因为是小于号所以小的优先
+   //重载运算符，左边的和u比较，左边的优先
    bool operator < (const Edge &u)const{
    	if(w != u.w)return w > u.w;
    	return x < u.x;
