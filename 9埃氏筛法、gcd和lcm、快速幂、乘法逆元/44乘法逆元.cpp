@@ -1,6 +1,4 @@
-// StarryCoding P44 【模板】乘法逆元 by jin
 #include<bits/stdc++.h>
-
 using namespace std;
 using ll = long long;
 const int N = 2e6 + 9;

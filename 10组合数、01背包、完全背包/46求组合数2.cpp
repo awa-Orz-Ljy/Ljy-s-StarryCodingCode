@@ -7,13 +7,12 @@ const int p = 1e9 + 7;
 
 ll fac[N];
 
-void init()
-{
+void init(){//阶乘初始化
    fac[0] = 1;
    for (ll i = 1; i <= 1e7; i++)fac[i] = i * fac[i - 1] % p;
 }
 
-ll qmi(ll a, ll b)
+ll qmi(ll a, ll b)//快速幂
 {
    ll ans = 1;
    while (b)
@@ -25,7 +24,7 @@ ll qmi(ll a, ll b)
    return ans;
 }
 
-ll inv(ll x)
+ll inv(ll x)//求逆元
 {
    return qmi(x, p - 2) % p;
 }
