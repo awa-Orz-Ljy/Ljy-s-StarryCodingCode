@@ -4,7 +4,7 @@ using ll= long long;
 ll dp[1001];//在前 i 个物品中选择，背包容量为 j 时所能获得的最大价值
 ll t[101],v[101];//时间和价值
 ll T,M;//最大时间，最大数量
-
+//数量，花费，价值
 void solve(){
    for(int i = 1;i <= M;i ++)//数量，输入时间和价值
        cin>>t[i]>>v[i];	

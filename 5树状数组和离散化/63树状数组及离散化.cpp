@@ -76,7 +76,7 @@ int main() {
     }
     return 0;
 }
-//四个函数，牛的，主要就是update和getsum，其中要用到的工具就是bin（返回索引）和lowbit（循环中寻找父节点的关键长度）
+//四个函数，主要就是update和getsum，其中要用到的工具就是bin（二分返回索引）和lowbit（循环中寻找父节点的关键长度）
 //且需要有个可变vector和存储操作和查询的结构体q1，q2
 
 

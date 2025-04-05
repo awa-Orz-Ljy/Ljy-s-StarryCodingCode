@@ -2,7 +2,7 @@
 using namespace std;
 const int N = 305 + 9;
 using ll = long long;
-const ll inf = 2e18;
+const ll inf = 2e18;//要更大一些
 
 ll d[N][N],n, m, q;//q次询问
 

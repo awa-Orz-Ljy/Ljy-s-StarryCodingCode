@@ -24,15 +24,8 @@ void _solve1() {
 	cout << ans << endl;
 }
 
-
-
-int main() 
-{
+int main() {
 	int T; cin >> T;
-	while (T--) 
-	{
-		_solve1();
-	}
-	
+	while (T--) _solve1();
 	return 0;
 }
